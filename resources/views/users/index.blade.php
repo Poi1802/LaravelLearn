@@ -21,10 +21,12 @@
           <td>{{ $user->name }}</td>
           <td>{{ $user->last_name }}</td>
           <td>{{ $user->email }}</td>
-          <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Info</a>
+          <td>
+            <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Info</a>
           </td>
-          <td><a href="{{ route('users.edit', $user->id) }}"
-              class="btn btn-success">Edit</a></td>
+          <td>
+            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success">Edit</a>
+          </td>
           <td>
             <form action="{{ route('users.destroy', $user->id) }}" method="post">
               @csrf
