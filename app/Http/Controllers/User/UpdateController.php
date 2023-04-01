@@ -3,19 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UpdateController extends Controller
 {
-	public function __invoke(User $user)
+	public function __invoke(User $user, UpdateRequest $request)
 	{
-		$data = request()->validate([
-			'name' => 'string',
-			'last_name' => 'string',
-			'email' => 'string',
-			'password' => 'string',
-		]);
+		$data = $request->validated();
 
 		$user->update($data);
 

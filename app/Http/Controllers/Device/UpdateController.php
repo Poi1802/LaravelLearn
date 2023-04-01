@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers\Device;
 
+use App\Http\Requests\Device\UpdateRequest;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class UpdateController extends Controller
 {
-	public function __invoke(Device $device)
+	public function __invoke(Device $device, UpdateRequest $request)
 	{
-		$data = request()->validate([
-			'name' => 'string',
-			'price' => 'numeric',
-			'description' => 'string',
-			'brand' => 'string',
-		]);
+		$data = $request->validated();
 
 		$device->update($data);
 
