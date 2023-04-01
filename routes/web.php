@@ -51,6 +51,16 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
 	Route::delete('/users/{user?}', 'DestroyController')->name('users.destroy');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Device'], function () {
+	Route::get('/devices', 'IndexController')->name('devices.index');
+	Route::get('/devices/create', 'CreateController')->name('devices.create');
+	Route::post('/devices', 'StoreController')->name('devices.store');
+	Route::get('/devices/{device}', 'ShowController')->name('devices.show');
+	Route::get('/devices/{device}/edit', 'EditController')->name('devices.edit');
+	Route::patch('/devices/{device}', 'UpdateController')->name('devices.update');
+	Route::delete('/devices/{device}', 'DestroyController')->name('devices.destroy');
+});
+
 /** Many methods controllers
  * Do this!
  */
@@ -78,10 +88,10 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
 /**
  * And this!
  */
-Route::get('/devices', [DeviceController::class, 'index'])->name('devices.index');
-Route::get('/devices/create', [DeviceController::class, 'create'])->name('devices.create');
-Route::post('/devices', [DeviceController::class, 'store'])->name('devices.store');
-Route::get('/devices/{device}', [DeviceController::class, 'show'])->name('devices.show');
-Route::get('/devices/{device}/edit', [DeviceController::class, 'edit'])->name('devices.edit');
-Route::patch('/devices/{device}', [DeviceController::class, 'update'])->name('devices.update');
-Route::delete('/devices/{device}', [DeviceController::class, 'destroy'])->name('devices.destroy');
+// Route::get('/devices', [DeviceController::class, 'index'])->name('devices.index');
+// Route::get('/devices/create', [DeviceController::class, 'create'])->name('devices.create');
+// Route::post('/devices', [DeviceController::class, 'store'])->name('devices.store');
+// Route::get('/devices/{device}', [DeviceController::class, 'show'])->name('devices.show');
+// Route::get('/devices/{device}/edit', [DeviceController::class, 'edit'])->name('devices.edit');
+// Route::patch('/devices/{device}', [DeviceController::class, 'update'])->name('devices.update');
+// Route::delete('/devices/{device}', [DeviceController::class, 'destroy'])->name('devices.destroy');
