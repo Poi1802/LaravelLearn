@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('main');
+Route::get('/admin', function () {
+  return view('admin.index');
 })->name('main');
 
 Route::get('/zeka', [MyNameController::class, 'idx']);
@@ -59,6 +59,30 @@ Route::group(['namespace' => 'App\Http\Controllers\Device'], function () {
   Route::get('/devices/{device}/edit', 'EditController')->name('devices.edit');
   Route::patch('/devices/{device}', 'UpdateController')->name('devices.update');
   Route::delete('/devices/{device}', 'DestroyController')->name('devices.destroy');
+});
+
+Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
+  Route::group(['namespace' => 'Post'], function () {
+    Route::get('/posts', 'IndexController')->name('posts.index');
+    Route::get('/posts/create', 'CreateController')->name('posts.create');
+    Route::post('/posts', 'StoreController')->name('posts.store');
+    Route::get('/posts/{post}', 'ShowController')->name('posts.show');
+    Route::get('/posts/{post}/edit', 'EditController')->name('posts.edit');
+    Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
+    Route::delete('/posts/{post}', 'DestroyController')->name('posts.destroy');
+  });
+});
+
+Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
+  Route::group(['namespace' => 'Device'], function () {
+    Route::get('/devices', 'IndexController')->name('devices.index');
+    Route::get('/devices/create', 'CreateController')->name('devices.create');
+    Route::post('/devices', 'StoreController')->name('devices.store');
+    Route::get('/devices/{device}', 'ShowController')->name('devices.show');
+    Route::get('/devices/{device}/edit', 'EditController')->name('devices.edit');
+    Route::patch('/devices/{device}', 'UpdateController')->name('devices.update');
+    Route::delete('/devices/{device}', 'DestroyController')->name('devices.destroy');
+  });
 });
 
 /** Many methods controllers
