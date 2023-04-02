@@ -10,21 +10,21 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class UserFactory extends Factory
 {
-    protected $model = User::class;
+  protected $model = User::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            'name' => $this->faker->name(),
-            'last_name' => $this->faker->lastName(),
-            'email' => fake()->unique()->email(),
-            'password' => $this->faker->password(),
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
+  public function definition(): array
+  {
+    return [
+      'name' => $this->faker->name(),
+      'last_name' => $this->faker->lastName(),
+      'email' => fake()->unique()->email(),
+      'password' => $this->faker->password(),
 
-        ];
-    }
+    ];
+  }
 }

@@ -13,20 +13,20 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        Category::factory(50)->create();
-        User::factory(50)->create();
-        Device::factory(50)->create();
-        $tags = Tag::factory(100)->create();
-        $posts = Post::factory(100)->create();
+  /**
+   * Seed the application's database.
+   */
+  public function run(): void
+  {
+    Category::factory(50)->create();
+    User::factory(50)->create();
+    Device::factory(50)->create();
+    $tags = Tag::factory(100)->create();
+    $posts = Post::factory(100)->create();
 
-        foreach ($posts as $post) {
-            $tagIds = $tags->random(4)->pluck('id');
-            $post->tags()->attach($tagIds);
-        }
+    foreach ($posts as $post) {
+      $tagIds = $tags->random(4)->pluck('id');
+      $post->tags()->attach($tagIds);
     }
+  }
 }

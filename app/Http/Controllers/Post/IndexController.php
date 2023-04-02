@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-	public function __invoke()
-	{
-		$posts = Post::all();
+  public function __invoke()
+  {
+    $posts = Post::paginate(10);
 
-		return view('posts.index', compact('posts'));
-	}
+    return view('posts.index', compact('posts'));
+  }
 }

@@ -8,10 +8,10 @@ use Illuminate\Routing\Controller;
 
 class IndexController extends Controller
 {
-	public function __invoke()
-	{
-		$devices = Device::all();
+  public function __invoke()
+  {
+    $devices = Device::paginate(10);
 
-		return view('devices.index', compact('devices'));
-	}
+    return view('devices.index', compact('devices'));
+  }
 }

@@ -7,7 +7,10 @@
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 
-a {
+.post,
+.device {
     text-decoration: none;
-    color: inherit;
+    &:hover {
+        text-decoration: underline;
+    }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
   <div>
-    <div class="post mb-3">
+    <div class="post_show mb-3">
       <div>{{ $post->id . '. ' . $post->title }}</div>
       <div>{{ $post->content }}</div>
       <div>category: {{ $category->name }}</div>

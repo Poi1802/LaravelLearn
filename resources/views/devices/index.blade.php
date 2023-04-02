@@ -14,4 +14,7 @@
       </a>
     </div>
   @endforeach
+  <div class="mt-3">
+    {{ $devices->links() }}
+  </div>
 @endsection

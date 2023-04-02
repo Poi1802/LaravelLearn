@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('content')
-  <div class="device">
+  <div class="device_show">
     <div class="name">
       Name: <span class="fst-italic">{{ $device->name }}</span>
     </div>
     <div class="price">
-      Price: <span class="fst-italic">{{ $device->price }}</span>
+      Price: <span class="fst-italic">{{ $device->price }} &#x20bd</span>
     </div>
     <div class="description">
       Description: <span class="fst-italic">{{ $device->description }}</span>
