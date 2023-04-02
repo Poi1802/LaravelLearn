@@ -11,7 +11,8 @@
   <title>Document</title>
 </head>
 @php
-  $uri = explode('/', $_SERVER['REQUEST_URI']);
+  $uri = isset($_SERVER['PATH_INFO']) ? explode('/', $_SERVER['PATH_INFO']) : '/ ';
+  // dump($uri);
 @endphp
 
 <body>

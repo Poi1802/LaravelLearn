@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers\Device;
 
+use App\Http\Filters\DeviceFilter;
+use App\Http\Requests\Device\FilterRequest;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class IndexController extends Controller
 {
-  public function __invoke()
+  public function __invoke(FilterRequest $request)
   {
-    $devices = Device::paginate(10);
+    $data = $request->validated();
+
+    $filter = app()->make(DeviceFilter::class, ['queryParams' => $data]);
+
+    $devices = Device::filter($filter)->paginate(10);
 
     return view('devices.index', compact('devices'));
   }

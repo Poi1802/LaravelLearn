@@ -15,6 +15,6 @@
     </div>
   @endforeach
   <div class="mt-3">
-    {{ $devices->links() }}
+    {{ $devices->withQueryString()->links() }}
   </div>
 @endsection
