@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->unsignedInteger('price');
             $table->text('description');
             $table->string('brand');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
             $table->softDeletes();
         });
